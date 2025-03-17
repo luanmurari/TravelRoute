@@ -1,0 +1,82 @@
+<div class="container">
+  <h1>Gerenciamento de Rotas de Viagem</h1>
+
+  <h2>Consultar Melhor Rota</h2>
+  <form (submit)="getBestRoute()">
+    <div class="form-group">
+      <label>Origem:</label>
+      <input [(ngModel)]="searchOrigin" name="searchOrigin" placeholder="Origem" required />
+
+      <label>Destino:</label>
+      <input [(ngModel)]="searchDestination" name="searchDestination" placeholder="Destino" required />
+
+      <button type="submit" class="btn btn-info">Buscar Melhor Rota</button>
+    </div>
+  </form>
+
+  <div *ngIf="bestRoute" id="bestRouteResult" class="best-route-box">
+    <p>{{ bestRoute }}</p>
+  </div>
+
+  <form (submit)="insertRoute()">
+    <h2>Cadastrar Nova Rota</h2>
+    <div class="form-group">
+      <label>Origem:</label>
+      <input [(ngModel)]="origin" name="origin" placeholder="Origem" required />
+
+      <label>Destino:</label>
+      <input [(ngModel)]="destination" name="destination" placeholder="Destino" required />
+
+      <label>Preço:</label>
+      <input [(ngModel)]="price" name="price" placeholder="Preço" type="number" required />
+
+      <button type="submit" class="btn btn-primary">Cadastrar Rota</button>
+    </div>
+  </form>
+
+  <div *ngIf="message" class="message">
+    <p>{{ message }}</p>
+  </div>
+
+  <h2>Rotas Cadastradas</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Origem</th>
+        <th>Destino</th>
+        <th>Preço</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let route of routes">
+        <td>{{ route.origin }}</td>
+        <td>{{ route.destination }}</td>
+        <td>${{ route.price }}</td>
+        <td>
+          <button (click)="editRoute(route)" class="btn btn-warning">Editar</button>
+          <button (click)="deleteRoute(route.origin, route.destination)" class="btn btn-danger">Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="editing">
+    <h2>Atualizar Rota</h2>
+    <form (submit)="updateRoute()">
+      <div class="form-group">
+        <label>Origem:</label>
+        <input [(ngModel)]="origin" name="origin" placeholder="Origem" disabled />
+
+        <label>Destino:</label>
+        <input [(ngModel)]="destination" name="destination" placeholder="Destino" disabled />
+
+        <label>Preço:</label>
+        <input [(ngModel)]="price" name="price" placeholder="Preço" type="number" required />
+
+        <button type="submit" class="btn btn-success">Atualizar Rota</button>
+        <button type="button" (click)="cancelEdit()" class="btn btn-secondary">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
