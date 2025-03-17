@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TravelRouteAPI</name>
+    </assembly>
+    <members>
+        <member name="M:TravelRouteAPI.Controllers.TravelRouteController.Insert(TravelRouteAPI.Models.TravelRouteDto)">
+            <summary>Adiciona uma nova rota de viagem.</summary>
+            <param name="travelRouteDto">Objeto contendo origem, destino e preço.</param>
+        </member>
+        <member name="M:TravelRouteAPI.Controllers.TravelRouteController.Get">
+            <summary>Retorna todas as rotas cadastradas.</summary>
+        </member>
+        <member name="M:TravelRouteAPI.Controllers.TravelRouteController.Delete(System.String,System.String)">
+            <summary>Remove uma rota específica com base na origem e destino.</summary>
+            <param name="origin">Origem da rota.</param>
+            <param name="destination">Destino da rota.</param>
+        </member>
+        <member name="M:TravelRouteAPI.Controllers.TravelRouteController.GetBest(System.String,System.String)">
+            <summary>Retorna a melhor rota possível entre a origem e o destino com base no menor custo.</summary>
+            <param name="origin">Origem da viagem.</param>
+            <param name="destination">Destino da viagem.</param>
+        </member>
+        <member name="M:TravelRouteAPI.Controllers.TravelRouteController.Update(TravelRouteAPI.Models.TravelRouteDto)">
+            <summary>Atualiza o preço de uma rota existente.</summary>
+            <param name="travelRouteDto">Objeto contendo origem, destino e o novo preço.</param>
+        </member>
+        <member name="T:TravelRouteAPI.Data.Migrations.CreateTableTravelRoute">
+            <inheritdoc />
+        </member>
+        <member name="M:TravelRouteAPI.Data.Migrations.CreateTableTravelRoute.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:TravelRouteAPI.Data.Migrations.CreateTableTravelRoute.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:TravelRouteAPI.Data.Migrations.CreateTableTravelRoute.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
